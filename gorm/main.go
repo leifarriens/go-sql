@@ -3,10 +3,9 @@ package main
 import (
 	"fmt"
 	"log"
-	"os"
 
 	"github.com/go-faker/faker/v4"
-	"github.com/joho/godotenv"
+	env "github.com/leifarriens/sql/internal"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -23,15 +22,7 @@ type Product struct {
 }
 
 func init() {
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("No .env file found")
-	}
-
-	database, databaseSet := os.LookupEnv("DATABASE")
-
-	if !databaseSet {
-		log.Fatalln("DATABASE not set")
-	}
+	database := env.GetDatabase("DATABASE_GORM")
 
 	connStr = database
 }
