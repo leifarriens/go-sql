@@ -16,7 +16,7 @@ Inspect db
 
 ```sh
 docker exec -ti postgres-db psql -U postgres
-gopostgres
+\c gopostgres
 \dt
 SELECT * FROM product
 ```
