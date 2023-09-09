@@ -6,23 +6,6 @@ Start db
 docker compose up -d
 ```
 
-Create database in container
+Run raw sql app: [README](/sql/README.md)
 
-```sh
-docker exec -ti postgres-db createdb -U postgres gopostgres
-```
-
-Inspect db
-
-```sh
-docker exec -ti postgres-db psql -U postgres
-\c gopostgres
-\dt
-SELECT * FROM product
-```
-
-Run app
-
-```sh
-go run main.go
-```
+Run gorm app: [README](/gorm/README.md)
